@@ -6,11 +6,12 @@ import java.util.EmptyStackException;
 // Design a stack which in addition to push and pop, has a function min
 // which returns the minimum element. Push, pop, and min should all operate in O(1) time.
 public class StackMin<T> {
-    Node<T> head;
+    private Node<T> head;
+    private int min;
 
-    static class Node<E> {
-        E val;
-        Node<E> next;
+    private static class Node<E> {
+        private E val;
+        private Node<E> next;
 
         public Node() {
         }
@@ -21,16 +22,24 @@ public class StackMin<T> {
         }
     }
 
+    // default constructor
     public StackMin() {
         head = null;
+        min = 0;
     }
 
+    // constructor
     public StackMin(T val) {
         head = new Node<>(val);
+        min = (Integer) val;
     }
 
     public StackMin<T> push(T val) {
         Node<T> newNode = new Node<>(val);
+
+        if((Integer)val < min) {
+            min = (Integer) val;
+        }
 
         newNode.next = head;
         head = newNode;
@@ -50,6 +59,10 @@ public class StackMin<T> {
         temp.next = null;
 
        return temp.val;
+    }
+
+    public int min() {
+        return min;
     }
 
     public void print() {
@@ -74,5 +87,11 @@ public class StackMin<T> {
         System.out.println(stackMin.pop());
         System.out.println(stackMin.pop());
         stackMin.print();
+
+        stackMin.push(55).push(42).push(99).push(12).push(-5).push(0).push(21).push(30);
+        stackMin.print();
+        System.out.println(stackMin.min());
+
+
     }
 }
