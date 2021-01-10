@@ -26,27 +26,27 @@ public class Stack<T> {
         index3 = capacity1 + capacity2;
     }
 
-    public void push(int val1, int val2, int val3) {
+    public void push(T val1, T val2, T val3) {
         pushS1(val1);
         pushS2(val2);
         pushS3(val3);
 
     }
 
-    public void pushS1(int val) {
+    public void pushS1(T val) {
         array[index1] = val;
         size1++;
         index1++;
 
     }
 
-    public void pushS2(int val) {
+    public void pushS2(T val) {
         array[index2] = val;
         size2++;
         index2++;
     }
 
-    public void pushS3(int val) {
+    public void pushS3(T val) {
         array[index3] = val;
         size3++;
         index3++;
@@ -66,11 +66,17 @@ public class Stack<T> {
         return (T) array[index2];
     }
 
+    @SuppressWarnings("unchecked")
     public T popS3() {
         array[index3] = null;
         size3--;
         index3--;
         return (T) array[index3];
+    }
+
+    // Needs formal type parameter <T>
+    public static <T> void print(T val) {
+        System.out.println(val);
     }
 
 
