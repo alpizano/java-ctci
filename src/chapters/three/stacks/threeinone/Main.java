@@ -1,8 +1,7 @@
 package chapters.three.stacks.threeinone;
 
-// Describe how you could use a single array to implement three stacks
-public class Solution {
+public class Main {
     public static void main(String[] args) {
-
+        Stack stack = new Stack(10, 20 ,30);
     }
 }
