@@ -21,8 +21,6 @@ public class isUnique {
             if(!set.add(str.charAt(i) + "")) return false;
 
         }
-
-        System.out.println(set);
         return true;
     }
 
